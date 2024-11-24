@@ -5,3 +5,6 @@ os.environ.setdefault(
 os.environ.setdefault(
     "SECRET_KEY","n5cahjj=n4d2ndk8$qd&4f3__#@slg*gd^@*0xbqeryx3)3p4$"
 )
+os.environ.setdefault(
+    "DEVELOPMENT","True"
+)
