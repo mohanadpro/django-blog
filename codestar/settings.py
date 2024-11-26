@@ -10,14 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+# self added
 import os
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
+# self added
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# self added
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
@@ -29,8 +32,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# self updated
 DEBUG = 'DEVELOPMENT' in os.environ
 
+# self updated
 ALLOWED_HOSTS = ['127.0.0.1', '.codeinstitute-ide.net', '.herokuapp.com']
 
 
@@ -42,13 +47,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # self added
     'django.contrib.staticfiles',
     'django_summernote',
     'blog',
+    'about'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # self added to serve static file
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,6 +71,7 @@ ROOT_URLCONF = 'codestar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # self added
         'DIRS': [TEMPLATES_DIR],        
         'APP_DIRS': True,
         'OPTIONS': {
@@ -89,6 +98,7 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 #     }
 # }
 
+# self added
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
@@ -127,6 +137,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# self added
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -138,6 +149,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # To allow requests from these sites
+# self added
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
     "https://*.herokuapp.com"
