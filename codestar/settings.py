@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     # self added
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     # for authentication
     'django.contrib.sites',
     'allauth',
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap5',
+    'cloudinary',
     # for content to have a panel to write on and design like word
     'django_summernote',
     'blog',

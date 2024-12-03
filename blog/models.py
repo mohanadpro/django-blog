@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime 
 # Create your models here.
-
+from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
@@ -16,6 +16,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     # one to many relationship , User can write more than one posts and models.CASCADE means that 
     author = models.ForeignKey(User, on_delete = models.CASCADE, related_name = "blog_posts")
+    featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     excerpt = models.TextField(blank=True)
     # default created time is the time of the entry post
